@@ -1,0 +1,16 @@
+{
+  "uploadOnSave": true,
+  "useAtomicWrites": true,
+  "deleteLocal": false,
+  "hostname": "140.113.225.114",
+  "port": "52520",
+  "target": "CA2016F-FP",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "ca41",
+  "password": "Mishima7",
+  "watch": [],
+  "transport": "scp"
+}
