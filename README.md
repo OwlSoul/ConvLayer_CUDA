@@ -1,7 +1,9 @@
 <h1> NCTU IEE 2016 Fall </br> Computer Architecture Final Project </h1>
 
-Part-I: Use CUDA to accelerate the operations of a typical convolutional layer in often-used large-scale neural networks. (You can find the description slides [here](https://docs.google.com/presentation/d/1uYAh4sU3ZA39zQfRGr596CdbRKgjEh4FnfDEz4eQwuU/edit?usp=sharing)) </br>
-Part-II: Accelerate a sparse convolutional layer with CUDA. (You can find the description slides [here](https://docs.google.com/presentation/d/1XkgoowAUo4Ml5EyLstSpO9aO6wPK9HeHQ5VjkjblwiI/edit#slide=id.p))
+<h2> ORIGINAL TASK: </h2>
+
+**Part-I**: Use CUDA to accelerate the operations of a typical convolutional layer in often-used large-scale neural networks. (You can find the description slides [here](https://docs.google.com/presentation/d/1uYAh4sU3ZA39zQfRGr596CdbRKgjEh4FnfDEz4eQwuU/edit?usp=sharing)) </br>
+**Part-II**: Accelerate a sparse convolutional layer with CUDA. (You can find the description slides [here](https://docs.google.com/presentation/d/1XkgoowAUo4Ml5EyLstSpO9aO6wPK9HeHQ5VjkjblwiI/edit#slide=id.p))
 ## Three sub-directory
 ### ./data
 This directory contains the input data for the base program
@@ -74,10 +76,9 @@ The program under this directory can show the device information
 
 ## Other Rules
 * It’s team work, 1 ~ 3 people in one team
-    * Same team members as [part-I](https://docs.google.com/spreadsheets/d/1o-Tpq2UEE8jDqwkoMaVHfYQvgkfbu5n_KWtzuctjJ7c/edit?usp=sharing)
-* Compress your code and report into one zip file and upload to E3
+* Compress your code and report into one zip file and upload to E3 system
     * Name your package as: LeaderID_FP2.zip
-    * One team only need to upload one package to E3
+    * One team only need to upload one package to E3 system
     * Please name your report as: LeaderID_Report_FP2.pdf
     * Make sure TA can compile and run your code on the provided server
 * Any CUDA library is forbidden to use in this project
