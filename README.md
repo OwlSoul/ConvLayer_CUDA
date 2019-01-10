@@ -1,8 +1,35 @@
 <h1> NCTU IEE 2016 Fall </br> Computer Architecture Final Project </h1>
 
-Part-I: Use CUDA to accelerate the operations of a typical convolutional layer in often-used large-scale neural networks. (You can find the description slides [here](https://docs.google.com/presentation/d/1uYAh4sU3ZA39zQfRGr596CdbRKgjEh4FnfDEz4eQwuU/edit?usp=sharing)) </br>
-Part-II: Accelerate a sparse convolutional layer with CUDA. (You can find the description slides [here](https://docs.google.com/presentation/d/1XkgoowAUo4Ml5EyLstSpO9aO6wPK9HeHQ5VjkjblwiI/edit#slide=id.p))
+## Annotation
+This was a challenge project at NCTU (National Chiao-Tung University) to use CUDA parallel computation framework for speeding up computation of one ConvNet layer. Whichever team acheive maximum speedup using GPU compared to CPU wins. This code won first place in the first round, 4th place in 2nd round and 1st place overall.
+
+Each team was provided with one the server with NVidia GTX680 GPU on board. Same one. Yes, each team was provided with the same server, and same GPU. Simultaneously. Feel the pain.
+
+Methods to acheive maximum speedup included usage of sparse arrays, shared GPU memory and loop unrolling. Loop unrolling gave about 0.5ms speedup boost which resulted in 1st place of the first round. Another trick was to switch compiler architecture from default (compute_10) to a better one (compute_30). Main memory in compute_30 is cached instead of compute_10, which results in a reasonable speedup.
+
+Full report is available inside this repository as well.
+
+## Contents
+[Original Task](#origtask)\
+[  Three sub-directory](#subdir)\
+[    ./data](#data)\
+[    /.innerProduct](#innerproduct)  \
+[    ./device](#device)\
+[Usage of the base program](#baseprog)\
+[Task](#task)\
+[Evaluation](#evaluation)\
+[Rules](#rules)\
+[Useful references](#references)
+
+
+<a name="origtask"></a>
+<h2> ORIGINAL TASK: </h2>
+
+**Part-I**: Use CUDA to accelerate the operations of a typical convolutional layer in often-used large-scale neural networks. (You can find the description slides [here](https://docs.google.com/presentation/d/1uYAh4sU3ZA39zQfRGr596CdbRKgjEh4FnfDEz4eQwuU/edit?usp=sharing)) </br>
+**Part-II**: Accelerate a sparse convolutional layer with CUDA. (You can find the description slides [here](https://docs.google.com/presentation/d/1XkgoowAUo4Ml5EyLstSpO9aO6wPK9HeHQ5VjkjblwiI/edit#slide=id.p))
+<a name="subdir"></a>
 ## Three sub-directory
+<a name="data"></a>
 ### ./data
 This directory contains the input data for the base program
 * /data/filt.txt - Store the values of filters
@@ -10,6 +37,7 @@ This directory contains the input data for the base program
 * /data/inNeu.txt - Store the values of input neurons
 * /data/inNeu.coo - Store the values of input neurons in COO format
 
+<a name="innerproduct"></a>
 ### ./innerProduct
 This is the example to show you how to use CUDA to accelerate Inner Product
 #### Usage
@@ -18,6 +46,7 @@ This is the example to show you how to use CUDA to accelerate Inner Product
     make
     make run
     
+<a name="device"></a>
 ### ./device
 The program under this directory can show the device information
 #### Usage
@@ -25,11 +54,11 @@ The program under this directory can show the device information
     cd ./device
     make
     make run
-    
+<a name="baseprog"></a>    
 ## Usage of the base program
 ### Get the code and data for part-II into a new branch
 
-    git checkout -t origin/part2
+    git clone https://github.com/OwlSoul/ConvLayer_CUDA.git
 
 ### Compile the code
 
@@ -38,12 +67,15 @@ The program under this directory can show the device information
 ### Run the code
 
     make run
+    
+<a name="task"></a>
 ## Task
 * Put the input data in sparse format and reimplement your CUDA kernels
 * Use NVIDIA Visual Profiler to analyze and improve your code
 * Optimize your CUDA kernels for the sparse format
 * Improve the input data format (like using other sparse format rather than COO)
 
+<a name="evaluation"></a>
 ## Evaluation
 * convLayerCPU() will do the computation with C++ and store the output in the outCPU
 * checker() will check whether the values stored in outCPU and outGPU are the same
@@ -55,36 +87,19 @@ The program under this directory can show the device information
         DataTransTime = DataHostToDeviceTime + DataDeviceToHostTime
         TotalExecTime = GPUKernelsExecTime + DataTransTime
         
-## Grading Policy
-* Completeness (30%)
-    * Your result is correct (Pass the check) - 5%
-    * You get speedup compared to convLayerCPU() - 5%
-    * You use NVIDIA Visual Profiler (NVVP) to help you - 5%
-    * You utilize the sparsity in either Neurons or Filters - 5%
-    * Improve the input data format (like using other sparse format rather than COO) - 10%
-* Performance Ranking (30%)
-    * TA will rank your TotalExecTime on the provided server
-    * The fastest one will get 30% and the last one will get 1%
-* Report (40%)
-    * Description of your implementation and results - 5%
-    * Show how NVVP help you find and solve perf. issues - 5%
-    * Discussion on your optimizations and innovations - 20%
-    * Comparison between part-I - 5%
-    * Feedback of this project - 5%
-
-## Other Rules
+<a name="rules"></a>
+## Rules
 * It’s team work, 1 ~ 3 people in one team
-    * Same team members as [part-I](https://docs.google.com/spreadsheets/d/1o-Tpq2UEE8jDqwkoMaVHfYQvgkfbu5n_KWtzuctjJ7c/edit?usp=sharing)
-* Compress your code and report into one zip file and upload to E3
+* Compress your code and report into one zip file and upload to E3 system
     * Name your package as: LeaderID_FP2.zip
-    * One team only need to upload one package to E3
+    * One team only need to upload one package to E3 system
     * Please name your report as: LeaderID_Report_FP2.pdf
     * Make sure TA can compile and run your code on the provided server
 * Any CUDA library is forbidden to use in this project
 * Delay is NOT acceptable
 * Any plagiarism will make you get zero point
 
-
+<a name="references"></a>
 ## Useful Reference
 ### Part-I
 * LeNet: [Gradient Based Learning Applied to Document Recognition](http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf)
