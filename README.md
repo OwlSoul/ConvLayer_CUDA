@@ -1,5 +1,14 @@
 <h1> NCTU IEE 2016 Fall </br> Computer Architecture Final Project </h1>
 
+## Annotation
+This was a challenge project at NCTU (National Chiao-Tung University) to use CUDA parallel computation framework for speeding up computation of one ConvNet layer. Whichever team acheive maximum speedup using GPU compared to CPU wins. This code won first place in the first round, 4th place in 2nd round and 1st place overall.
+
+Each team was provided with one the server with NVidia GTX680 GPU on board. Same one. Yes, each team was provided with the same server, and same GPU. Simultaneously. Feel the pain.
+
+Methods to acheive maximum speedup included usage of sparse arrays, shared GPU memory and loop unrolling. Loop unrolling gave about 0.5ms speedup boost which resulted in 1st place of the first round. Another trick was to switch compiler architecture from default (compute_10) to a better one (compute_30). Main memory in compute_30 is cached instead of compute_10, which results in a reasonable speedup.
+
+Full report is available inside this repository as well.
+
 ## Contents
 [Original Task](#origtask)\
 [  Three sub-directory](#subdir)\
