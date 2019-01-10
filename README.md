@@ -10,7 +10,7 @@
 [Task](#task)\
 [Evaluation](#evaluation)\
 [Rules](#rules)\
-[Useful references](#references)\
+[Useful references](#references)
 
 
 <a name="origtask"></a>
