@@ -1,16 +1,16 @@
 <h1> NCTU IEE 2016 Fall </br> Computer Architecture Final Project </h1>
 
-## Contents  
-[Original Task](#origtask)  
-[-- Three sub-directory](#subdir)
-[---- ./data](#data)
-[---- /.innerProduct](#innerproduct)  
-[---- ./device](#device)
-[-- Usage of the base program](#baseprog)
-[-- Task](#task)
-[-- Evaluation](#evaluation)
-[-- Rules](#rules)
-[-- Useful references](#references)
+## Contents
+[Original Task](#origtask)\
+[  Three sub-directory](#subdir)\
+[    ./data](#data)\
+[    /.innerProduct](#innerproduct)  \
+[    ./device](#device)\
+[Usage of the base program](#baseprog)\
+[Task](#task)\
+[Evaluation](#evaluation)\
+[Rules](#rules)\
+[Useful references](#references)\
 
 
 <a name="origtask"></a>
